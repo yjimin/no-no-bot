@@ -22,7 +22,7 @@ async def on_message(message):
     user_message = message.content;
 
     for i in swearList:
-        if i.casefold() in user_message:
+        if i.casefold() in user_message.casefold():
             await message.channel.send('Thats a bad word. Dont do that. Or else >:(')
             break
 
