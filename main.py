@@ -19,11 +19,16 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    user_message = message.content;
+    user_message = message.content
 
     for i in swearList:
+        num_of_cursed_words = 0
         if i.casefold() in user_message.casefold():
-            await message.channel.send('Thats a bad word. Dont do that. Or else >:(')
-            break
+            num_of_cursed_words += 1
+            if num_of_cursed_words >= 3:
+                await message.author.kick("Too many bad words for you. Say goodbye :)")
+            else:
+                await message.channel.send('Thats a bad word. Dont do that. Or else >:(')
+        break
 
 client.run('OTA0MDkwMzE5OTI5Mzc2Nzgw.YX2duQ.lm949QK-q7IDD_ghY7rJ9OiWNTI')
