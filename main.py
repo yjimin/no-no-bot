@@ -18,7 +18,7 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    member_list[member.id] = 0
+    member_list[member.user.username] = 0
     await member.send('Welcome ' + str(member.user.username) + "!")
 
 @client.event
